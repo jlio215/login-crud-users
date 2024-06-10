@@ -6,7 +6,7 @@ const validateJWT = (req, res, next) => {
         return res.status(401).json({mensaje: 'Error unauthorized'})
     }
     try {
-        const payload = jwt.verify(token, '123456');
+        const payload = jwt.verify(token, process.env.SECRET_JWT);
         console.log(payload)
         req.payload = payload;
         next();
