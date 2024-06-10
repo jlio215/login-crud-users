@@ -10,7 +10,7 @@ const generateJwt = (usuario) => {
         estado: usuario.estado
     }
 
-    const token = jwt.sign(payload, '123456', {expiresIn: '2h'});
+    const token = jwt.sign(payload, process.env.SECRET_JWT, {expiresIn: '2h'});
 
     return token;
 }
